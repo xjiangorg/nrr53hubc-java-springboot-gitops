@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: nrr53hubc-java-springboot
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: nrr53hubc-java-springboot 
+  name: nrr53hubc-java-springboot
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: nrr53hubc-java-springboot
+    weight: 100 
